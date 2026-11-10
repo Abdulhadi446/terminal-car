@@ -26,11 +26,17 @@ def data_dir() -> Path:
 
 
 def stats_path() -> Path:
+    return data_dir() / "stats.json"
+
+
+def _legacy_stats_path() -> Path:
     return data_dir() / "highscore.json"
 
 
 def load_stats(path: Path | None = None) -> dict:
     target = path or stats_path()
+    if path is None and not target.exists():
+        target = _legacy_stats_path()
     stats = dict(DEFAULT_STATS)
     try:
         with open(target, "r", encoding="utf-8") as fh:

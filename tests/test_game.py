@@ -1,11 +1,14 @@
 """Basic smoke tests for Terminal Rush (terminal-car)."""
 
 import unittest
+from tempfile import TemporaryDirectory
+from pathlib import Path
 from terminal_car.constants import LANES, MIN_COLS, MIN_ROWS
 from terminal_car.layout import make_layout
 from terminal_car.game import Game, MENU, PLAYING
 from terminal_car.terminal import Canvas
 from terminal_car.sprites import car_sprite
+from terminal_car.storage import load_stats, record_run, save_stats, stats_path
 
 
 class TestTerminalCar(unittest.TestCase):
@@ -44,6 +47,17 @@ class TestTerminalCar(unittest.TestCase):
         sprite = car_sprite("sedan", "red", facing_down=False)
         self.assertGreater(sprite.w, 0)
         self.assertGreater(sprite.h, 0)
+
+    def test_stats_persist(self):
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "stats.json"
+            stats = load_stats(path)
+            record_run(stats, 1234, 12.5, 9.0)
+            self.assertTrue(save_stats(stats, path))
+            self.assertEqual(load_stats(path)["score"], 1234)
+
+    def test_stats_path_uses_documented_filename(self):
+        self.assertEqual(stats_path().name, "stats.json")
 
 
 if __name__ == "__main__":
