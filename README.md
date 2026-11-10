@@ -3,15 +3,15 @@
 > **Endless retro arcade highway survival, played entirely in your terminal.**  
 > Pure Python 3 & standard library `curses` — zero external dependencies, 30 FPS sub-cell half-block graphics, and responsive arcade controls.
 
-![Gameplay Demo](https://raw.githubusercontent.com/Abdulhadi446/terminal-car/main/assets/demo.gif)
+![Gameplay Demo](assets/demo.gif)
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Abdulhadi446/terminal-car/main/assets/title.png" width="48%" alt="Title Screen" />
-  <img src="https://raw.githubusercontent.com/Abdulhadi446/terminal-car/main/assets/gameplay.png" width="48%" alt="Gameplay Action" />
+  <img src="assets/title.png" width="48%" alt="Title Screen" />
+  <img src="assets/gameplay.png" width="48%" alt="Gameplay Action" />
 </p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Abdulhadi446/terminal-car/main/assets/nitro.png" width="48%" alt="Nitro Boost Overdrive" />
-  <img src="https://raw.githubusercontent.com/Abdulhadi446/terminal-car/main/assets/game-over.png" width="48%" alt="Game Over & Stats" />
+  <img src="assets/nitro.png" width="48%" alt="Nitro Boost Overdrive" />
+  <img src="assets/game-over.png" width="48%" alt="Game Over & Stats" />
 </p>
 
 ---
@@ -147,11 +147,11 @@ python3 -m terminal_car
 
 | Title Screen | High-Speed Highway |
 |:---:|:---:|
-| ![Title Screen](https://raw.githubusercontent.com/Abdulhadi446/terminal-car/main/assets/title.png) | ![Gameplay](https://raw.githubusercontent.com/Abdulhadi446/terminal-car/main/assets/gameplay.png) |
+| ![Title Screen](assets/title.png) | ![Gameplay](assets/gameplay.png) |
 
 | Nitro Overdrive | Game Over & Stats |
 |:---:|:---:|
-| ![Nitro Screen](https://raw.githubusercontent.com/Abdulhadi446/terminal-car/main/assets/nitro.png) | ![Game Over](https://raw.githubusercontent.com/Abdulhadi446/terminal-car/main/assets/game-over.png) |
+| ![Nitro Screen](assets/nitro.png) | ![Game Over](assets/game-over.png) |
 
 ---
 
