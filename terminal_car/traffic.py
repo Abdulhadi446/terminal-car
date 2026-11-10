@@ -79,17 +79,17 @@ class TrafficManager:
 
     def spawn_wave(self, difficulty: float) -> None:
         entry = self._entry_lanes()
-        if len(entry) >= LANES - 1:
+        # Keep two lanes open at the top of the road so a player always has
+        # an escape route when the next wave arrives.
+        if len(entry) >= LANES - 2:
             return
         taken: set[int] = set()
         max_cars = 1
-        if difficulty > 0.28 and self.rng.random() < 0.22 + difficulty * 0.4:
-            max_cars = 2
-        if difficulty > 0.8 and self.rng.random() < 0.18:
+        if difficulty > 0.55 and self.rng.random() < 0.12 + difficulty * 0.12:
             max_cars = 2
 
         for _ in range(max_cars):
-            if len(entry | taken) >= LANES - 1:
+            if len(entry | taken) >= LANES - 2:
                 break
             lane = self._choose_lane(taken)
             if lane is None:
@@ -152,8 +152,8 @@ class TrafficManager:
         self.timer -= dt
         if self.timer <= 0:
             self.spawn_wave(difficulty)
-            interval = (1.62 - 0.95 * clamp(difficulty, 0.0, 1.0)) * self.rng.uniform(0.72, 1.24)
-            self.timer = max(0.42, interval)
+            interval = (1.8 - 0.65 * clamp(difficulty, 0.0, 1.0)) * self.rng.uniform(0.82, 1.22)
+            self.timer = max(0.62, interval)
 
     # ------------------------------------------------------------------
     def draw(self, world) -> None:
